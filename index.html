@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arbeitszeiten Rechner – Zeiten addieren, geteilte Dienste &amp; Urlaub berechnen | ZeitSaldo</title>
+<meta name="description" content="Der Arbeitszeiten Rechner für alle Ihre Zeiten: Schichten und Stunden einfach addieren, geteilte Dienste mit zwei Blöcken berechnen, Arbeitszeiten bei zwei Jobs zusammenrechnen und Urlaubsanspruch anteilig ermitteln – kostenlos und ohne Anmeldung.">
+<meta name="robots" content="index, follow">
+<!-- TODO nach dem Deploy: Canonical-Tag mit der eigenen Domain eintragen -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Arbeitszeiten Rechner – Zeiten addieren &amp; Urlaub berechnen | ZeitSaldo">
+<meta property="og:description" content="Arbeitszeiten addieren, geteilte Dienste berechnen, Urlaubsanspruch prüfen – der Arbeitszeiten Rechner für Woche, Monat und zwei Jobs.">
+<meta property="og:locale" content="de_DE">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111827'/%3E%3Cpath d='M9 11h14M9 16h9M9 21h12' stroke='%2384cc16' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"ZeitSaldo Arbeitszeiten Rechner",
+ "applicationCategory":"BusinessApplication",
+ "operatingSystem":"Web",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},
+ "inLanguage":"de",
+ "description":"Arbeitszeiten Rechner zum Addieren mehrerer Zeiten, für geteilte Dienste mit zwei Arbeitsblöcken und zur anteiligen Urlaubsberechnung."
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+  {"@type":"Question","name":"Was ist ein Arbeitszeiten Rechner?","acceptedAnswer":{"@type":"Answer","text":"Ein Arbeitszeiten Rechner verarbeitet nicht nur einen einzelnen Tag, sondern viele Zeiten auf einmal: Er addiert Schichten und Tageswerte zu Wochen- und Monatssummen, rechnet sie in Dezimalstunden um und hilft, mehrere Dienste oder Beschäftigungen gemeinsam zu prüfen."}},
+  {"@type":"Question","name":"Wie addiere ich Arbeitszeiten richtig?","acceptedAnswer":{"@type":"Answer","text":"Rechnen Sie jede Zeit zuerst in Minuten um, addieren Sie die Minuten und wandeln Sie die Summe zurück. Beispiel: 7:45 plus 8:15 sind 465 plus 495 = 960 Minuten, also genau 16 Stunden."}},
+  {"@type":"Question","name":"Sollte ich Arbeitszeiten pro Tag runden oder erst die Summe?","acceptedAnswer":{"@type":"Answer","text":"Addieren Sie immer zuerst exakt und runden Sie – wenn überhaupt – nur die Endsumme. Fünf Tage mit je 7:57 Stunden sind exakt 39:45 Stunden. Wer jeden Tag auf 8:00 rundet, kommt auf 40:00 Stunden und erfindet 15 Minuten pro Woche dazu."}},
+  {"@type":"Question","name":"Was ist ein geteilter Dienst?","acceptedAnswer":{"@type":"Answer","text":"Beim geteilten Dienst arbeiten Sie in zwei Blöcken an einem Tag, zum Beispiel 10:30 bis 14:00 Uhr und 17:30 bis 22:00 Uhr in der Gastronomie. Dazwischen liegt eine längere freie Zwischenzeit, die keine Arbeitszeit ist."}},
+  {"@type":"Question","name":"Zählt die Zwischenzeit beim geteilten Dienst als Arbeitszeit?","acceptedAnswer":{"@type":"Answer","text":"Wenn Sie über die Zwischenzeit frei verfügen und den Betrieb verlassen dürfen, ist sie Freizeit und keine Arbeitszeit. Müssen Sie dagegen vor Ort bleiben oder jederzeit einspringen, kann sie als Arbeitszeit oder Arbeitsbereitschaft gewertet werden."}},
+  {"@type":"Question","name":"Ich habe zwei Jobs – werden meine Arbeitszeiten zusammengerechnet?","acceptedAnswer":{"@type":"Answer","text":"Ja. Nach § 2 Abs. 1 ArbZG sind die Arbeitszeiten bei mehreren Arbeitgebern zusammenzurechnen. Die Höchstarbeitszeit von 48 Stunden pro Woche und die Tagesgrenzen gelten für beide Beschäftigungen gemeinsam, nicht für jede einzeln."}},
+  {"@type":"Question","name":"Gilt die 48-Stunden-Grenze auch für den Minijob neben dem Hauptjob?","acceptedAnswer":{"@type":"Answer","text":"Ja, auch Minijob-Stunden zählen mit. Wer im Hauptjob 38 Stunden arbeitet, darf im Nebenjob höchstens 10 weitere Stunden pro Woche leisten. Darüber hinaus kann der zuletzt geschlossene Vertrag sogar nichtig sein."}},
+  {"@type":"Question","name":"Wie viel Urlaub habe ich bei einer 3-Tage-Woche?","acceptedAnswer":{"@type":"Answer","text":"Gesetzlich stehen Ihnen 4 Wochen Urlaub zu, bei 3 Arbeitstagen pro Woche also 12 Urlaubstage. Sieht Ihr Vertrag für Vollzeitkräfte 30 Urlaubstage vor, sind es anteilig 30 mal 3 geteilt durch 5, also 18 Tage."}},
+  {"@type":"Question","name":"Wann entsteht mein voller Urlaubsanspruch?","acceptedAnswer":{"@type":"Answer","text":"Der volle Jahresurlaub entsteht erstmals nach sechs Monaten Betriebszugehörigkeit (§ 4 BUrlG). Davor und beim Ausscheiden in der ersten Jahreshälfte gilt der Teilurlaub: ein Zwölftel des Jahresurlaubs für jeden vollen Monat."}},
+  {"@type":"Question","name":"Ist der Arbeitszeiten Rechner kostenlos?","acceptedAnswer":{"@type":"Answer","text":"Ja. Alle Rechner auf dieser Seite sind kostenlos, ohne Anmeldung nutzbar, und Ihre Eingaben werden nur in Ihrem Browser verarbeitet."}}
+ ]
+}
+</script>
+<style>
+:root{
+ --slate:#111827; --slate2:#1f2937; --ink:#1c2534; --muted:#5f6b7d;
+ --bg:#f6f7f4; --card:#ffffff; --line:#e3e7dd;
+ --lime:#84cc16; --lime2:#65a30d; --limed:#3f6212;
+ --soft:#f2f7e4; --ok:#166534; --okbg:#e6f6ec; --warn:#92400e; --warnbg:#fdf0dc; --bad:#b91c1c; --badbg:#fdecec;
+ --r:16px; --sh:0 10px 28px rgba(17,24,39,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.68;font-size:17px}
+a{color:var(--limed);text-decoration:underline;text-underline-offset:3px}
+a:hover{color:var(--lime2)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.site{background:var(--slate);color:#e5e7eb;position:sticky;top:0;z-index:50}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;padding-bottom:12px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:800;font-size:1.26rem}
+.logo .bars{color:var(--lime);font-size:1.2rem;letter-spacing:1px}
+.logo em{font-style:normal;color:var(--lime)}
+nav.main{display:flex;gap:20px;flex-wrap:wrap}
+nav.main a{color:#c3cad6;text-decoration:none;font-size:.94rem;font-weight:600}
+nav.main a:hover{color:#fff}
+.hero{background:linear-gradient(140deg,var(--slate) 0%,var(--slate2) 70%,#27351a 100%);color:#fff;padding:50px 0 62px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;left:-100px;bottom:-140px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(132,204,22,.22),transparent 65%)}
+.hero h1{font-size:2.38rem;line-height:1.17;max-width:760px;position:relative;z-index:1}
+.hero h1 .hl{color:var(--lime)}
+.hero p.lead{margin-top:16px;max-width:780px;color:#d4dae3;font-size:1.07rem;position:relative;z-index:1}
+.hero p.lead a{color:#bef264;font-weight:700}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;position:relative;z-index:1}
+.badges span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);padding:6px 14px;border-radius:999px;font-size:.88rem;font-weight:600}
+main{padding-bottom:10px}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh);padding:27px 28px;margin:26px 0}
+.tool.first{margin-top:-36px;position:relative;z-index:2}
+.tool h2{font-size:1.4rem;margin-bottom:4px}
+.tool p.sub{color:var(--muted);font-size:.95rem;margin-bottom:17px}
+.zgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.field label{display:block;font-weight:700;font-size:.89rem;margin-bottom:6px}
+.field input,.field select{width:100%;padding:12px 13px;border:1.5px solid var(--line);border-radius:12px;font-size:1.04rem;background:#fcfdf9;color:var(--ink)}
+.field input:focus,.field select:focus{outline:2px solid var(--lime);border-color:var(--lime2)}
+.field small{display:block;color:var(--muted);margin-top:5px;font-size:.81rem}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.grid.c3{grid-template-columns:repeat(3,1fr)}
+button.go{margin-top:18px;background:var(--lime);color:#15230a;border:0;padding:13px 28px;font-size:1.03rem;font-weight:800;border-radius:12px;cursor:pointer;box-shadow:0 8px 20px rgba(132,204,22,.35)}
+button.go:hover{background:var(--lime2);color:#fff}
+.outbox{display:none;margin-top:20px;background:var(--soft);border:1.5px dashed var(--lime2);border-radius:12px;padding:16px 19px}
+.outbox.show{display:block}
+.outbox .big{font-size:1.3rem;font-weight:800;color:var(--limed)}
+.outbox p{margin-top:4px;font-size:.96rem}
+.res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:20px}
+.res{background:var(--soft);border:1px solid #dbe8bd;border-radius:14px;padding:15px;text-align:center}
+.res b{display:block;font-size:1.35rem;color:var(--limed)}
+.res span{font-size:.85rem;color:var(--muted);font-weight:600}
+.note{margin-top:15px;padding:12px 16px;border-radius:12px;font-size:.94rem}
+.note.ok{background:var(--okbg);color:var(--ok)}
+.note.warn{background:var(--warnbg);color:var(--warn)}
+.note.bad{background:var(--badbg);color:var(--bad)}
+section.block{padding:36px 0 4px}
+section.block h2{font-size:1.66rem;line-height:1.25;margin-bottom:12px}
+section.block h3{font-size:1.17rem;margin:22px 0 8px}
+section.block p{margin-bottom:12px;max-width:880px}
+section.block ul,section.block ol{margin:0 0 14px 23px;max-width:880px}
+section.block li{margin-bottom:6px}
+.kicker{text-transform:uppercase;letter-spacing:.13em;font-size:.77rem;font-weight:800;color:var(--lime2);margin-bottom:8px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin:16px 0 8px;font-size:.96rem}
+th{background:var(--slate);color:#fff;text-align:left;padding:11px 14px;font-size:.9rem}
+td{padding:10px 14px;border-top:1px solid var(--line)}
+tr:nth-child(even) td{background:#f8faf3}
+.formula{background:var(--slate);color:#e7f5c8;border-radius:var(--r);padding:20px 24px;margin:16px 0;font-size:1.05rem}
+.formula code{font-family:ui-monospace,Consolas,monospace;background:rgba(255,255,255,.12);padding:2px 8px;border-radius:7px;color:#fff}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:16px}
+.mini{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--lime);border-radius:var(--r);padding:18px;box-shadow:var(--sh)}
+.mini b{display:block;margin-bottom:5px}
+.mini p{color:#4b5568;font-size:.94rem;margin:0}
+details.faq{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 19px;margin-bottom:11px}
+details.faq summary{font-weight:700;cursor:pointer;font-size:1.02rem}
+details.faq p{margin-top:8px;color:#3d475c}
+footer.site{background:var(--slate);color:#aeb8c6;margin-top:54px;padding:36px 0 44px;font-size:.92rem}
+footer.site b{color:#fff}
+footer.site p{max-width:880px;margin-bottom:10px}
+.small{font-size:.88rem;color:var(--muted)}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.zgrid{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:1fr 1fr}.res-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){body{font-size:16px}.hero{padding:38px 0 52px}.hero h1{font-size:1.76rem}.zgrid,.grid,.grid.c3,.cards{grid-template-columns:1fr}nav.main{display:none}table{font-size:.87rem}th,td{padding:8px 10px}}
+</style>
+</head>
+<body>
+<header class="site">
+ <div class="wrap">
+  <a class="logo" href="#"><span class="bars">▤</span>Zeit<em>Saldo</em></a>
+  <nav class="main">
+   <a href="#addieren">Arbeitszeiten Rechner</a>
+   <a href="#dienste">Geteilte Dienste</a>
+   <a href="#zwei-jobs">Zwei Jobs</a>
+   <a href="#urlaub">Urlaubs-Rechner</a>
+   <a href="#faq">FAQ</a>
+  </nav>
+ </div>
+</header>
+
+<div class="hero">
+ <div class="wrap">
+  <h1>Arbeitszeiten Rechner: <span class="hl">Alle Ihre Zeiten</span> addieren, prüfen, im Griff haben</h1>
+  <p class="lead">Ein Job hat selten nur eine Arbeitszeit – er hat viele: fünf Schichten pro Woche, geteilte Dienste, einen Nebenjob am Samstag. Wer nur einen einzelnen Tag nachrechnen möchte, kommt mit einem einfachen <a href="https://arbeitzeitrechner.de/">arbeitszeiten rechner</a> für Beginn, Ende und Pause schnell ans Ziel. Dieser Arbeitszeiten Rechner denkt in Summen: Er addiert Ihre Zeiten zu Wochen- und Monatswerten, rechnet geteilte Dienste mit zwei Blöcken und zeigt Ihnen sogar Ihren anteiligen Urlaubsanspruch – kostenlos und ohne Anmeldung.</p>
+  <div class="badges">
+   <span>✓ Bis zu 6 Zeiten addieren</span>
+   <span>✓ Geteilte Dienste (2 Blöcke)</span>
+   <span>✓ Zwei Jobs zusammenrechnen</span>
+   <span>✓ Urlaub anteilig berechnen</span>
+  </div>
+ </div>
+</div>
+
+<main class="wrap">
+
+ <!-- ============ ZEITEN ADDIERER ============ -->
+ <div class="tool first" id="addieren">
+  <h2>Arbeitszeiten Rechner – Zeiten einfach addieren</h2>
+  <p class="sub">Tragen Sie bis zu sechs Zeiten ein, zum Beispiel Ihre Schichten einer Woche. Format: Stunden:Minuten (etwa 7:45) oder als Dezimalzahl (7,75). Leere Felder zählen nicht mit.</p>
+  <div class="zgrid">
+   <div class="field"><label for="z1">Zeit 1</label><input type="text" class="zi" id="z1" value="7:45" inputmode="decimal"></div>
+   <div class="field"><label for="z2">Zeit 2</label><input type="text" class="zi" id="z2" value="8:15" inputmode="decimal"></div>
+   <div class="field"><label for="z3">Zeit 3</label><input type="text" class="zi" id="z3" value="6:30" inputmode="decimal"></div>
+   <div class="field"><label for="z4">Zeit 4</label><input type="text" class="zi" id="z4" value="8:00" inputmode="decimal"></div>
+   <div class="field"><label for="z5">Zeit 5</label><input type="text" class="zi" id="z5" value="7:30" inputmode="decimal"></div>
+   <div class="field"><label for="z6">Zeit 6</label><input type="text" class="zi" id="z6" placeholder="z. B. 4:15" inputmode="decimal"></div>
+  </div>
+  <button class="go" type="button" id="zBtn">Zeiten addieren</button>
+  <div class="res-grid" id="zRes" style="display:none">
+   <div class="res"><b id="zSum">–</b><span>Summe (Std : Min)</span></div>
+   <div class="res"><b id="zDez">–</b><span>Summe dezimal</span></div>
+   <div class="res"><b id="zAnz">–</b><span>Einträge</span></div>
+   <div class="res"><b id="zAvg">–</b><span>Ø pro Eintrag</span></div>
+  </div>
+  <div class="note warn" id="zNote" style="display:none"></div>
+ </div>
+
+ <!-- ============ ADDIEREN ERKLÄRT ============ -->
+ <section class="block" id="addieren-wissen">
+  <p class="kicker">Methode</p>
+  <h2>Arbeitszeiten addieren – so geht es ohne Fehler</h2>
+  <p>Stunden und Minuten lassen sich nicht wie normale Zahlen zusammenzählen, weil eine Stunde 60 und nicht 100 Minuten hat. Wer 7:45 und 8:15 im Kopf zu „15:60" verrechnet, merkt den Fehler hoffentlich noch. Der sichere Weg des Arbeitszeiten Rechners führt über die Minuten:</p>
+  <div class="formula"><code>Jede Zeit in Minuten umrechnen → Minuten addieren → Summe durch 60 teilen</code><br>Beispiel: 7:45 = 465 Min, 8:15 = 495 Min → 960 Min = <strong>16 Stunden</strong></div>
+  <p>Eine komplette Woche sieht im Arbeitszeiten Rechner so aus – fünf ganz normale Schichten, keine davon „glatt":</p>
+  <table>
+   <thead><tr><th>Tag</th><th>Arbeitszeit</th><th>In Minuten</th><th>Zwischensumme</th></tr></thead>
+   <tbody>
+    <tr><td>Montag</td><td>7:45</td><td>465</td><td>465</td></tr>
+    <tr><td>Dienstag</td><td>8:15</td><td>495</td><td>960</td></tr>
+    <tr><td>Mittwoch</td><td>6:30</td><td>390</td><td>1.350</td></tr>
+    <tr><td>Donnerstag</td><td>8:00</td><td>480</td><td>1.830</td></tr>
+    <tr><td>Freitag</td><td>7:30</td><td>450</td><td><strong>2.280 = 38:00 Std.</strong></td></tr>
+   </tbody>
+  </table>
+  <h3>Erst addieren, dann runden – die 15-Minuten-Falle</h3>
+  <p>Der häufigste Summenfehler entsteht nicht beim Addieren, sondern beim Runden: Wer jede Tageszeit einzeln auf volle Stunden rundet, verfälscht die Wochensumme systematisch. Fünf Tage mit je 7:57 Stunden sind exakt <strong>39:45 Stunden</strong>. Tagesweise auf 8:00 gerundet zeigt die Liste dagegen 40:00 Stunden – 15 erfundene Minuten pro Woche. Auf 46 Arbeitswochen hochgerechnet sind das rund <strong>11,5 Stunden im Jahr</strong>, die entweder zu viel oder – bei Abrundung – zu wenig abgerechnet werden. Die Regel lautet deshalb: Alle Zeiten exakt erfassen, erst die Endsumme darf gerundet werden, wenn eine Rundungsregel überhaupt vereinbart ist.</p>
+ </section>
+
+ <!-- ============ GETEILTE DIENSTE ============ -->
+ <section class="block" id="dienste">
+  <p class="kicker">Zwei Blöcke, ein Tag</p>
+  <h2>Geteilte Dienste: Wenn der Arbeitstag eine lange Mittagspause hat</h2>
+  <p>In der Gastronomie, im ambulanten Pflegedienst und im Einzelhandel ist der geteilte Dienst Alltag: vormittags arbeiten, nachmittags frei, abends wiederkommen. Rechtlich ist das kein normaler Tag mit Pause, sondern ein Tag mit zwei getrennten Arbeitsblöcken. Die lange Zwischenzeit ist in der Regel <strong>Freizeit und keine Arbeitszeit</strong> – vorausgesetzt, Sie dürfen den Betrieb verlassen und frei über die Zeit verfügen. Müssen Sie dagegen im Haus bleiben oder jederzeit einspringen, kann die Zwischenzeit als Arbeitszeit oder Arbeitsbereitschaft zählen.</p>
+  <p>Wichtig bleibt die Ruhezeit: Zwischen dem Ende des Abendblocks und dem Beginn am nächsten Morgen müssen grundsätzlich 11 Stunden liegen. Bei einer Dienstspanne von 11,5 Stunden bleiben rechnerisch 12,5 Stunden Ruhe – das passt. Kritisch wird es, wenn ein später Abendblock auf einen frühen Morgenblock am Folgetag trifft.</p>
+  <div class="tool" style="margin-top:18px">
+   <h2 style="font-size:1.3rem">Rechner für geteilte Dienste</h2>
+   <p class="sub">Beide Blöcke eintragen – der Rechner zeigt Nettozeit, Dienstspanne, freie Zwischenzeit und die Ruhezeit bis zum nächsten gleichen Dienstbeginn.</p>
+   <div class="grid">
+    <div class="field"><label for="dS1">Block 1 – Beginn</label><input type="time" id="dS1" value="10:30"></div>
+    <div class="field"><label for="dE1">Block 1 – Ende</label><input type="time" id="dE1" value="14:00"></div>
+    <div class="field"><label for="dS2">Block 2 – Beginn</label><input type="time" id="dS2" value="17:30"></div>
+    <div class="field"><label for="dE2">Block 2 – Ende</label><input type="time" id="dE2" value="22:00"></div>
+   </div>
+   <div class="grid c3" style="margin-top:14px">
+    <div class="field"><label for="dPause">Pausen innerhalb der Blöcke (Min gesamt)</label><input type="number" id="dPause" value="0" min="0" max="720" step="5"></div>
+   </div>
+   <button class="go" type="button" id="dBtn">Dienst berechnen</button>
+   <div class="outbox" id="dOut" aria-live="polite"></div>
+  </div>
+  <p>Das Beispiel oben ist der Klassiker aus der Gastronomie: 10:30–14:00 Uhr Mittagsgeschäft (3,5 Stunden), nachmittags frei, 17:30–22:00 Uhr Abendgeschäft (4,5 Stunden). Macht zusammen <strong>8 Stunden Arbeitszeit</strong> bei einer Dienstspanne von 11,5 Stunden und 3,5 Stunden freier Zwischenzeit – ein Tag, den ein einfacher Tagesrechner mit nur einer Pause nicht sauber abbilden kann.</p>
+ </section>
+
+ <!-- ============ ZWEI JOBS ============ -->
+ <section class="block" id="zwei-jobs">
+  <p class="kicker">Nebenjob</p>
+  <h2>Zwei Jobs, eine Grenze: Arbeitszeiten werden zusammengerechnet</h2>
+  <p>Viele unterschätzen diese Regel: Die gesetzlichen Höchstgrenzen gelten nicht pro Arbeitsvertrag, sondern pro Person. § 2 Abs. 1 des Arbeitszeitgesetzes stellt ausdrücklich klar, dass die <strong>Arbeitszeiten bei mehreren Arbeitgebern zusammenzurechnen</strong> sind. Damit gilt die Wochenhöchstzeit von 48 Stunden für Haupt- und Nebenjob gemeinsam – und auch die Tagesgrenze von 8, ausnahmsweise 10 Stunden, bezieht sich auf die Summe beider Tätigkeiten.</p>
+  <table>
+   <thead><tr><th>Situation</th><th>Rechnung</th><th>Ergebnis</th></tr></thead>
+   <tbody>
+    <tr><td>Hauptjob 38 Std./Woche + Minijob</td><td>48 − 38 = 10</td><td>Max. <strong>10 Std./Woche</strong> im Nebenjob</td></tr>
+    <tr><td>Hauptjob 40 Std./Woche + Minijob</td><td>48 − 40 = 8</td><td>Max. <strong>8 Std./Woche</strong> im Nebenjob</td></tr>
+    <tr><td>Ein Tag: 7 Std. Hauptjob + 4 Std. Nebenjob</td><td>7 + 4 = 11</td><td><strong>Nicht zulässig</strong> – über der 10-Stunden-Tagesgrenze</td></tr>
+    <tr><td>Ein Tag: 8 Std. Hauptjob + 2 Std. Nebenjob</td><td>8 + 2 = 10</td><td>Zulässig nur mit Ausgleich (Ø 8 Std.)</td></tr>
+   </tbody>
+  </table>
+  <p>Die Folgen einer dauerhaften Überschreitung sind ernster, als viele denken: Nach der Rechtsprechung (etwa LAG Nürnberg, Urteil vom 19.05.2020, Az. 7 Sa 11/19) kann der zuletzt geschlossene Arbeitsvertrag nichtig sein, wenn beide Beschäftigungen zusammen die Höchstarbeitszeit sprengen. Hinzu kommt die Ruhezeit von 11 Stunden, die ebenfalls jobübergreifend einzuhalten ist – wer um 23 Uhr im Nebenjob endet, darf am nächsten Morgen nicht um 6 Uhr im Hauptjob beginnen. Informieren Sie deshalb beide Arbeitgeber über die jeweils andere Tätigkeit und prüfen Sie Ihre Gesamtzeiten mit dem Arbeitszeiten Rechner oben, bevor Sie einen Nebenjob annehmen.</p>
+ </section>
+
+ <!-- ============ URLAUB ============ -->
+ <section class="block" id="urlaub">
+  <p class="kicker">Erholung</p>
+  <h2>Urlaubsanspruch berechnen: Vier Wochen für alle – anteilig in Tagen</h2>
+  <p>Das Bundesurlaubsgesetz (BUrlG) garantiert jedem Arbeitnehmer mindestens <strong>vier Wochen bezahlten Erholungsurlaub</strong> im Jahr. Das Gesetz rechnet in Werktagen (Montag bis Samstag): 24 Werktage bei einer 6-Tage-Woche (§ 3 BUrlG). Entscheidend für Ihre persönliche Zahl ist nicht, wie viele Stunden Sie arbeiten, sondern an <strong>wie vielen Tagen pro Woche</strong> – eine Halbtagskraft an fünf Tagen hat denselben Anspruch in Tagen wie eine Vollzeitkraft, eine Kraft an drei Tagen entsprechend weniger Tage, aber dieselben vier Wochen frei.</p>
+  <div class="tool" style="margin-top:18px">
+   <h2 style="font-size:1.3rem">Urlaubs-Rechner – gesetzlich &amp; vertraglich</h2>
+   <p class="sub">Ihre Arbeitstage pro Woche und der Urlaub Ihrer Vollzeit-Kollegen genügen: Der Rechner zeigt Ihren gesetzlichen Mindestanspruch und Ihren anteiligen vertraglichen Anspruch.</p>
+   <div class="grid c3">
+    <div class="field"><label for="uTage">Ihre Arbeitstage pro Woche</label>
+     <select id="uTage"><option value="1">1 Tag</option><option value="2">2 Tage</option><option value="3" selected>3 Tage</option><option value="4">4 Tage</option><option value="5">5 Tage</option><option value="6">6 Tage</option></select></div>
+    <div class="field"><label for="uVoll">Urlaub bei Vollzeit (Tage/Jahr)</label><input type="number" id="uVoll" value="30" min="20" max="40" step="1"><small>Laut Vertrag/Tarif, üblich 25–30 bei 5-Tage-Woche.</small></div>
+    <div class="field"><label for="uBasis">Vollzeit arbeitet (Tage/Woche)</label>
+     <select id="uBasis"><option value="5" selected>5 Tage</option><option value="6">6 Tage</option></select></div>
+   </div>
+   <button class="go" type="button" id="uBtn">Urlaub berechnen</button>
+   <div class="outbox" id="uOut" aria-live="polite"></div>
+  </div>
+  <table>
+   <thead><tr><th>Arbeitstage pro Woche</th><th>Gesetzlicher Mindesturlaub</th><th>Vertraglich bei 30 Tagen Vollzeit (5-Tage-Basis)</th></tr></thead>
+   <tbody>
+    <tr><td>6</td><td>24 Tage</td><td>– (über Vollzeit-Basis)</td></tr>
+    <tr><td>5</td><td>20 Tage</td><td>30 Tage</td></tr>
+    <tr><td>4</td><td>16 Tage</td><td>24 Tage</td></tr>
+    <tr><td>3</td><td>12 Tage</td><td>18 Tage</td></tr>
+    <tr><td>2</td><td>8 Tage</td><td>12 Tage</td></tr>
+    <tr><td>1</td><td>4 Tage</td><td>6 Tage</td></tr>
+   </tbody>
+  </table>
+  <p>Drei Feinheiten aus dem Gesetz: Der volle Urlaubsanspruch entsteht erstmals nach <strong>sechs Monaten</strong> im Betrieb (§ 4 BUrlG, Wartezeit). Wer im laufenden Jahr ein- oder austritt, erhält in den gesetzlichen Fällen <strong>ein Zwölftel</strong> des Jahresurlaubs pro vollem Beschäftigungsmonat (§ 5 BUrlG). Und entstehen bei der Umrechnung Bruchteile, werden Werte ab einem halben Tag auf volle Urlaubstage <strong>aufgerundet</strong>. Für Minijobber gilt übrigens nichts anderes: Auch sie haben anteilig Anspruch auf bezahlten Urlaub – berechnet nach ihren wöchentlichen Arbeitstagen, nicht nach Stunden.</p>
+ </section>
+
+ <!-- ============ FAQ ============ -->
+ <section class="block" id="faq">
+  <p class="kicker">Wissen</p>
+  <h2>Häufige Fragen zum Arbeitszeiten Rechner</h2>
+  <details class="faq"><summary>Was ist ein Arbeitszeiten Rechner?</summary><p>Ein Arbeitszeiten Rechner verarbeitet nicht nur einen einzelnen Tag, sondern viele Zeiten auf einmal: Er addiert Schichten und Tageswerte zu Wochen- und Monatssummen, rechnet sie in Dezimalstunden um und hilft, mehrere Dienste oder Beschäftigungen gemeinsam zu prüfen.</p></details>
+  <details class="faq"><summary>Wie addiere ich Arbeitszeiten richtig?</summary><p>Rechnen Sie jede Zeit zuerst in Minuten um, addieren Sie die Minuten und wandeln Sie die Summe zurück. Beispiel: 7:45 plus 8:15 sind 465 plus 495 = 960 Minuten, also genau 16 Stunden.</p></details>
+  <details class="faq"><summary>Sollte ich Arbeitszeiten pro Tag runden oder erst die Summe?</summary><p>Addieren Sie immer zuerst exakt und runden Sie – wenn überhaupt – nur die Endsumme. Fünf Tage mit je 7:57 Stunden sind exakt 39:45 Stunden. Wer jeden Tag auf 8:00 rundet, kommt auf 40:00 Stunden und erfindet 15 Minuten pro Woche dazu.</p></details>
+  <details class="faq"><summary>Was ist ein geteilter Dienst?</summary><p>Beim geteilten Dienst arbeiten Sie in zwei Blöcken an einem Tag, zum Beispiel 10:30 bis 14:00 Uhr und 17:30 bis 22:00 Uhr in der Gastronomie. Dazwischen liegt eine längere freie Zwischenzeit, die keine Arbeitszeit ist.</p></details>
+  <details class="faq"><summary>Zählt die Zwischenzeit beim geteilten Dienst als Arbeitszeit?</summary><p>Wenn Sie über die Zwischenzeit frei verfügen und den Betrieb verlassen dürfen, ist sie Freizeit und keine Arbeitszeit. Müssen Sie dagegen vor Ort bleiben oder jederzeit einspringen, kann sie als Arbeitszeit oder Arbeitsbereitschaft gewertet werden.</p></details>
+  <details class="faq"><summary>Ich habe zwei Jobs – werden meine Arbeitszeiten zusammengerechnet?</summary><p>Ja. Nach § 2 Abs. 1 ArbZG sind die Arbeitszeiten bei mehreren Arbeitgebern zusammenzurechnen. Die Höchstarbeitszeit von 48 Stunden pro Woche und die Tagesgrenzen gelten für beide Beschäftigungen gemeinsam, nicht für jede einzeln.</p></details>
+  <details class="faq"><summary>Gilt die 48-Stunden-Grenze auch für den Minijob neben dem Hauptjob?</summary><p>Ja, auch Minijob-Stunden zählen mit. Wer im Hauptjob 38 Stunden arbeitet, darf im Nebenjob höchstens 10 weitere Stunden pro Woche leisten. Darüber hinaus kann der zuletzt geschlossene Vertrag sogar nichtig sein.</p></details>
+  <details class="faq"><summary>Wie viel Urlaub habe ich bei einer 3-Tage-Woche?</summary><p>Gesetzlich stehen Ihnen 4 Wochen Urlaub zu, bei 3 Arbeitstagen pro Woche also 12 Urlaubstage. Sieht Ihr Vertrag für Vollzeitkräfte 30 Urlaubstage vor, sind es anteilig 30 mal 3 geteilt durch 5, also 18 Tage.</p></details>
+  <details class="faq"><summary>Wann entsteht mein voller Urlaubsanspruch?</summary><p>Der volle Jahresurlaub entsteht erstmals nach sechs Monaten Betriebszugehörigkeit (§ 4 BUrlG). Davor und beim Ausscheiden in der ersten Jahreshälfte gilt der Teilurlaub: ein Zwölftel des Jahresurlaubs für jeden vollen Monat.</p></details>
+  <details class="faq"><summary>Ist der Arbeitszeiten Rechner kostenlos?</summary><p>Ja. Alle Rechner auf dieser Seite sind kostenlos, ohne Anmeldung nutzbar, und Ihre Eingaben werden nur in Ihrem Browser verarbeitet.</p></details>
+ </section>
+</main>
+
+<footer class="site">
+ <div class="wrap">
+  <p><b>ZeitSaldo</b> – Ihr Arbeitszeiten Rechner für Summen, geteilte Dienste und Urlaub. Viele Zeiten, eine Wahrheit: Was am Ende der Woche zählt, ist die korrekte Summe.</p>
+  <p><b>Hinweis:</b> Alle Angaben dienen der allgemeinen Information und ersetzen keine Rechtsberatung. Verbindlich sind Ihr Arbeitsvertrag, Tarifverträge sowie ArbZG und BUrlG in der aktuellen Fassung (Stand 2026).</p>
+  <p>© 2026 ZeitSaldo. Alle Inhalte wurden eigenständig recherchiert und formuliert.</p>
+ </div>
+</footer>
+
+<script>
+(function(){
+ "use strict";
+ function pad(n){return (n<10?"0":"")+n;}
+ function fmtHM(min){min=Math.round(min);return Math.floor(min/60)+":"+pad(min%60);}
+ function fmtStd(min){min=Math.round(min);var s=min<0?"−":"";min=Math.abs(min);return s+Math.floor(min/60)+" Std. "+pad(min%60)+" Min";}
+ function dez(min){return (min/60).toFixed(2).replace(".",",");}
+ function toMin(t){if(!t)return null;var p=t.split(":");return parseInt(p[0],10)*60+parseInt(p[1],10);}
+ function num(id){var v=parseFloat(document.getElementById(id).value);return isNaN(v)?0:v;}
+
+ /* Zeiten addieren: Eingaben als H:MM oder Dezimal */
+ function parseZeit(str){
+  if(!str)return null; str=String(str).trim(); if(!str)return null;
+  if(str.indexOf(":")>-1){var p=str.split(":");var h=parseInt(p[0],10),m=parseInt(p[1],10);if(isNaN(h)||isNaN(m))return null;return h*60+m;}
+  var d=parseFloat(str.replace(",",".")); if(isNaN(d))return null; return Math.round(d*60);
+ }
+ document.getElementById("zBtn").addEventListener("click",function(){
+  var sum=0,count=0,fehler=[];
+  document.querySelectorAll(".zi").forEach(function(el,i){
+   if(!el.value.trim())return;
+   var v=parseZeit(el.value);
+   if(v===null){fehler.push(i+1);}else{sum+=v;count++;}
+  });
+  var note=document.getElementById("zNote");
+  if(fehler.length){note.style.display="block";note.textContent="Hinweis: Feld "+fehler.join(", ")+" konnte nicht gelesen werden – bitte im Format 7:45 oder 7,75 eingeben.";}
+  else note.style.display="none";
+  if(count===0){document.getElementById("zRes").style.display="none";return;}
+  document.getElementById("zSum").textContent=fmtHM(sum)+" Std";
+  document.getElementById("zDez").textContent=dez(sum);
+  document.getElementById("zAnz").textContent=count;
+  document.getElementById("zAvg").textContent=fmtStd(sum/count);
+  document.getElementById("zRes").style.display="grid";
+ });
+
+ /* Geteilte Dienste */
+ document.getElementById("dBtn").addEventListener("click",function(){
+  var s1=toMin(document.getElementById("dS1").value),e1=toMin(document.getElementById("dE1").value),
+      s2=toMin(document.getElementById("dS2").value),e2=toMin(document.getElementById("dE2").value),
+      pause=num("dPause");
+  var out=document.getElementById("dOut");
+  if(s1===null||e1===null||s2===null||e2===null){out.innerHTML="<p>Bitte alle vier Uhrzeiten ausfüllen.</p>";out.classList.add("show");return;}
+  if(e1<s1)e1+=1440; if(s2<e1&&s2<s1)s2+=1440; if(e2<s2)e2+=1440;
+  var b1=e1-s1,b2=e2-s2,netto=Math.max(0,b1+b2-pause),
+      spanne=e2-s1,zwischen=Math.max(0,s2-e1),ruhe=1440-spanne;
+  var txt='<span class="big">Nettoarbeitszeit: '+fmtStd(netto)+' ('+dez(netto)+' dezimal)</span><p>Block 1: '+fmtStd(b1)+' · Block 2: '+fmtStd(b2)+(pause?' · Pausen gesamt: '+pause+' Min':'')+'. Dienstspanne: '+fmtStd(spanne)+', freie Zwischenzeit: '+fmtStd(zwischen)+'. Ruhezeit bis zum gleichen Start am Folgetag: '+fmtStd(ruhe)+(ruhe>=660?' ✓ (mindestens 11 Stunden eingehalten).':' – Achtung: unter der gesetzlichen Ruhezeit von 11 Stunden!')+'</p>';
+  out.innerHTML=txt;out.classList.add("show");
+ });
+
+ /* Urlaub */
+ document.getElementById("uBtn").addEventListener("click",function(){
+  var tage=parseInt(document.getElementById("uTage").value,10),
+      voll=num("uVoll"),basis=parseInt(document.getElementById("uBasis").value,10);
+  var gesetz=tage*4, vertragExakt=voll*tage/basis,
+      frac=vertragExakt-Math.floor(vertragExakt),
+      vertragGerundet=frac>=0.5?Math.ceil(vertragExakt):Math.floor(vertragExakt);
+  var txt='<span class="big">Gesetzlich: '+gesetz+' Tage · Vertraglich: '+(vertragGerundet!==vertragExakt?vertragGerundet+' Tage (exakt '+String(vertragExakt.toFixed(1)).replace(".",",")+')':vertragExakt+' Tage')+'</span><p>Der gesetzliche Mindesturlaub beträgt immer 4 Wochen – bei '+tage+' Arbeitstagen pro Woche sind das '+gesetz+' Tage. Ihr vertraglicher Anspruch wird anteilig gerechnet: '+voll+' Tage × '+tage+' ÷ '+basis+(vertragGerundet!==vertragExakt?' – Bruchteile ab einem halben Tag werden aufgerundet.':'.')+'</p>';
+  var out=document.getElementById("uOut");out.innerHTML=txt;out.classList.add("show");
+ });
+})();
+</script>
+</body>
+</html>
